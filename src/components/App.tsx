@@ -13,10 +13,17 @@ class _App extends React.Component<Props> {
     this.props.fetchTodos();
   };
 
+  renderList() {
+    return this.props.todos?.map((todo) => (
+      <div key={todo.id}>{todo.title}</div>
+    ));
+  }
+
   render() {
     return (
       <div>
         <button onClick={this.onFetchTodos}>Fetch</button>
+        {this.renderList()}
       </div>
     );
   }
